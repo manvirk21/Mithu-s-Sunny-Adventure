@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvmpt31ie3rv7"]
+
+[ext_resource type="Script" path="res://Scripts/seed.gd" id="1_8omnd"]
+[ext_resource type="Texture2D" uid="uid://bvw7jwj3aafo3" path="res://Assets/Sprites/Items/apple.png" id="2_nhb7r"]
+[ext_resource type="PackedScene" uid="uid://cw4ir7xdisw14" path="res://Scenes/Effectors/pickup.tscn" id="3_3vce6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3ugq"]
+size = Vector2(49, 50)
+
+[node name="Apple" type="Node2D"]
+top_level = true
+script = ExtResource("1_8omnd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1042, 411)
+scale = Vector2(0.222222, 0.191358)
+texture = ExtResource("2_nhb7r")
+
+[node name="Pickup" parent="." instance=ExtResource("3_3vce6")]
+position = Vector2(1049.77, 492.556)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+position = Vector2(-5.5, -2)
+shape = SubResource("RectangleShape2D_w3ugq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1044.27, 490.556)
+scale = Vector2(2.45, 2.5)
+
+[connection signal="body_entered" from="Pickup" to="." method="_on_pickup_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

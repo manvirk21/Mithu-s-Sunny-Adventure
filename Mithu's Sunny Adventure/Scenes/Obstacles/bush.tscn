@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1cfpxxjwjabl"]
+
+[ext_resource type="Script" path="res://Scripts/bush.gd" id="1_bvxln"]
+[ext_resource type="Texture2D" uid="uid://banklphi6uey" path="res://Assets/Sprites/Obstacles/bush.png" id="2_42fj5"]
+[ext_resource type="PackedScene" uid="uid://blq0xthld78i2" path="res://Scenes/Effectors/effect_damage.tscn" id="3_26uow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yigkj"]
+size = Vector2(85, 81)
+
+[node name="bush" type="Node2D"]
+top_level = true
+position = Vector2(-1, -39)
+script = ExtResource("1_bvxln")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1010, 507)
+scale = Vector2(0.448965, 0.580974)
+texture = ExtResource("2_42fj5")
+
+[node name="EffectDamage" parent="." instance=ExtResource("3_26uow")]
+position = Vector2(1006.25, 506.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EffectDamage"]
+position = Vector2(4.25, 1.5)
+shape = SubResource("RectangleShape2D_yigkj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1010, 508)
+scale = Vector2(4.36785, 4.36764)
+
+[connection signal="body_entered" from="EffectDamage" to="." method="_on_effect_damage_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

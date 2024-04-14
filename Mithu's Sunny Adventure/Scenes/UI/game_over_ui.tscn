@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp4s05lr4wwhh"]
+
+[ext_resource type="Script" path="res://Scripts/game_over_ui.gd" id="1_owin6"]
+[ext_resource type="Texture2D" uid="uid://dcd10asyn4v5f" path="res://Assets/Backgrounds/Untitled 10.png" id="2_lojlg"]
+
+[node name="GameOverUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 9.0
+offset_right = -1156.0
+offset_bottom = -639.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_owin6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(560.75, 277.5)
+scale = Vector2(1.086, 1.092)
+texture = ExtResource("2_lojlg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.00392157, 0.00392157, 0.00392157, 1)
+offset_left = -44.0
+offset_top = 26.0
+offset_right = 61.0
+offset_bottom = 74.0
+text = "   Yummy!
+More food?"
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 443.5
+offset_top = 434.0
+offset_right = 665.5
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

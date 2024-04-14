@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://disyjktm8rarv"]
+
+[ext_resource type="Script" path="res://Scripts/seed.gd" id="1_m7nlk"]
+[ext_resource type="Texture2D" uid="uid://c3rq0l0ushhu8" path="res://Assets/Sprites/Items/seed.png" id="2_t7obk"]
+[ext_resource type="PackedScene" uid="uid://cw4ir7xdisw14" path="res://Scenes/Effectors/pickup.tscn" id="3_j880g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3ugq"]
+size = Vector2(49, 50)
+
+[node name="Seed" type="Node2D"]
+top_level = true
+script = ExtResource("1_m7nlk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1005.77, 105.556)
+scale = Vector2(0.639601, 0.522909)
+texture = ExtResource("2_t7obk")
+
+[node name="Pickup" parent="." instance=ExtResource("3_j880g")]
+position = Vector2(1049.77, 492.556)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+position = Vector2(-5.5, -2)
+shape = SubResource("RectangleShape2D_w3ugq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1044.27, 490.556)
+scale = Vector2(2.45, 2.5)
+
+[connection signal="body_entered" from="Pickup" to="." method="_on_pickup_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
