@@ -36,6 +36,7 @@ To play Mithu's Sunny Adventure, follow these steps:
 ## Credits
 
 - Game developed by Manvir Kaur
+- Followed tutorial by Generalist Programmer
 
 ## Feedback and Support
 
