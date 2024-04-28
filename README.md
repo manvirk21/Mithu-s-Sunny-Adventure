@@ -24,7 +24,9 @@ Mithu's Sunny Adventure is an endless runner game where players control Mithu, a
 
 ## Installation
 
-To play Mithu's Sunny Adventure, follow these steps:
+Play online: https://manvirk21.itch.io/mithus-sunny-adventure
+
+To play Mithu's Sunny Adventure locally, follow these steps:
 
 1. Clone the repository to your local machine:
     https://github.com/manvirk21/Mithu-s-Sunny-Adventure
